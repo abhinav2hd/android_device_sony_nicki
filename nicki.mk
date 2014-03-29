@@ -150,7 +150,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.msm8960 \
     gps.conf \
-    sap.conf
+    sap.conf \
+    izat.conf
 
 PRODUCT_PACKAGES += \
     wcnss_service
@@ -167,8 +168,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \
-    ro.gps.agps_provider=customized \
-    persist.gps.qmienabled=true \
     persist.fuse_sdcard=true \
     ro.cwm.enable_key_repeat=true \
     persist.debug.wfd.enable=1 \
@@ -189,6 +188,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     lpa.decode=true \
     lpa.use-stagefright=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.gps.qmienabled=true \
+    ro.qc.sdk.izat.premium_enabled=1 \
+    ro.qc.sdk.izat.service_mask=0x5 \
+    persist.gps.qc_nlp_in_use=0 \
+    ro.gps.agps_provider=1
+
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
@@ -201,6 +207,8 @@ PRODUCT_PACKAGES += Torch
 
 PRODUCT_PACKAGES += libtime_genoff
 PRODUCT_PACKAGES += TimeService
+
+PRODUCT_PACKAGES += com.qualcomm.location
 
 # Product attributes
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
